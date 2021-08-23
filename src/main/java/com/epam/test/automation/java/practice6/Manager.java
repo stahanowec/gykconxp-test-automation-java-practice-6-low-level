@@ -11,11 +11,11 @@ public class Manager extends Employee {
     }
 
     @Override
-    public void setBonus(double bonus) {
+    public void setBonus(BigDecimal bonus) {
         if (quantity > 150) {
-            bonus = bonus + 1000;
+            bonus = bonus.add(new BigDecimal(1000));
         } else if (quantity > 100) {
-            bonus = bonus + 500;
+            bonus = bonus.add(new BigDecimal(500));
         }
         super.setBonus(bonus);
     }
