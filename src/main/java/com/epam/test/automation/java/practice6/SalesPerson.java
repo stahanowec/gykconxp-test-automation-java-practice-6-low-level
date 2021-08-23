@@ -4,18 +4,18 @@ import java.math.BigDecimal;
 
 public class SalesPerson extends Employee {
 
-    private BigDecimal percent;
+    private int percent;
 
-    public SalesPerson(String name, BigDecimal salary, BigDecimal bonus) {
+    public SalesPerson(String name, BigDecimal salary, int bonus) {
         super(name, salary);
         this.percent = bonus;
     }
 
     @Override
     public void setBonus(BigDecimal bonus) {
-        if (percent.compareTo(new BigDecimal(200)) > 0) {
+        if (percent > 200) {
             bonus = bonus.multiply(new BigDecimal(3));
-        } else if (percent.compareTo(new BigDecimal(100)) > 0) {
+        } else if (percent > 100) {
             bonus = bonus.multiply(new BigDecimal(2));
         }
         super.setBonus(bonus);
