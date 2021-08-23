@@ -18,6 +18,6 @@ public class Manager extends Employee {
         } else if (quantity > 100) {
             bonus = bonus.add(new BigDecimal(500));
         }
-        super.setBonus(bonus);
+        super.updateBonus(bonus);
     }
 }
