@@ -13,6 +13,7 @@ public class SalesPerson extends Employee {
 
     @Override
     public void setBonus(BigDecimal bonus) {
+        validateBonus(bonus);
         if (percent > 200) {
             bonus = bonus.multiply(new BigDecimal(3));
         } else if (percent > 100) {

@@ -18,10 +18,16 @@ public class Employee {
     }
 
     public BigDecimal getSalary() {
+        if (requireNonNull(salary).compareTo(new BigDecimal(0)) <= 0) {
+            throw new IllegalArgumentException();
+        }
         return salary;
     }
 
     public BigDecimal getBonus() {
+        if (requireNonNull(bonus).compareTo(new BigDecimal(0)) <= 0) {
+            throw new IllegalArgumentException();
+        }
         return bonus;
     }
 
@@ -30,6 +36,21 @@ public class Employee {
     }
 
     public BigDecimal toPay() {
+        requireNonNull(salary);
+        requireNonNull(bonus);
         return salary.add(bonus);
     }
+
+    public void validateBonus(BigDecimal bonus) {
+        if (requireNonNull(bonus).compareTo(new BigDecimal(0)) <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static <T> T requireNonNull(T obj) {
+        if (obj == null)
+            throw new IllegalArgumentException();
+        return obj;
+    }
+
 }

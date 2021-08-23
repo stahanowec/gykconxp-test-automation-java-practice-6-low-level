@@ -12,6 +12,7 @@ public class Manager extends Employee {
 
     @Override
     public void setBonus(BigDecimal bonus) {
+        validateBonus(bonus);
         if (quantity > 150) {
             bonus = bonus.add(new BigDecimal(1000));
         } else if (quantity > 100) {
