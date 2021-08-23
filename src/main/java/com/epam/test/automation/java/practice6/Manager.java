@@ -1,9 +1,11 @@
 package com.epam.test.automation.java.practice6;
 
+import java.math.BigDecimal;
+
 public class Manager extends Employee {
     private int quantity;
 
-    public Manager(String name, double salary, int clientAmount) {
+    public Manager(String name, BigDecimal salary, int clientAmount) {
         super(name, salary);
         this.quantity = clientAmount;
     }
